@@ -158,3 +158,4 @@ res = dict.fromkeys(spisok)
 for i in res:
     res[i]=spisok.count(i)
 print(res)
+
