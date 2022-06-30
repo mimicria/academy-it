@@ -25,9 +25,7 @@ print(sample)
 # повторяется 3 раза, число 2 – 2раза, число 3 - 2 раза, число 4 – 2 раза
 from random import randrange
 
-spisok = []
-for i in range(10):
-    spisok.append(randrange(5))
+spisok = [randrange(5) for i in range(10)]
 print(spisok)
 uniq = set(spisok)
 for i in uniq:
@@ -36,11 +34,7 @@ for i in uniq:
 # Задание 4 . Написать программу: дан список из 10 чисел, которые задаются с помощью
 # датчика случайных чисел. Программа находит повторяющиеся элементы и удаляет их из
 # списка. Например дан список (1,1,1,2,3,4,2,3,4) результат (1,2,3,4)
-from random import randrange
-
-spisok = []
-for i in range(10):
-    spisok.append(randrange(5))
+spisok = [randrange(5) for i in range(10)]
 print(spisok)
 print(list(set(spisok)))
 
@@ -123,7 +117,6 @@ print(models_data["Tesla"][0])
 # Задача подсчитать количество повторений значений. Пример значение 2 –
 # встречается дважды.
 # models_data = {“one”:1, “two”:2, “tree”:2, “four”:3…}
-from random import randrange
 
 keys = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
 models_data = {key: randrange(5) for key in keys}
@@ -133,7 +126,7 @@ uniq = set(val)
 for i in uniq:
     rep = val.count(i)
     if rep > 1:
-        print("Значение", i, "встречается", rep, "раза")
+        print("Значение", i, "повторяется", rep, "раза")
 
 # Задание 4. Даны два списка одинаковой длины. Необходимо создать из них
 # словарь таким образом, чтобы элементы первого списка были ключами, а
