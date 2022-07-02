@@ -8,32 +8,36 @@
 # делятся нацело на 4, Функция 3– подсчитывает для заданного отрезка чисел все числа,
 # которые делятся нацело на 5
 
-def f1(a,b):
-    count=0
-    for i in range(a,b+1):
-        if not i%3:
-            count+=1
+def f1(a, b):
+    count = 0
+    for i in range(a, b + 1):
+        if not i % 3:
+            count += 1
     return count
 
-def f2(a,b):
-    count=0
-    for i in range(a,b+1):
-        if not i%4:
-            count+=1
+
+def f2(a, b):
+    count = 0
+    for i in range(a, b + 1):
+        if not i % 4:
+            count += 1
     return count
 
-def f3(a,b):
-    count=0
-    for i in range(a,b+1):
-        if not i%5:
-            count+=1
+
+def f3(a, b):
+    count = 0
+    for i in range(a, b + 1):
+        if not i % 5:
+            count += 1
     return count
 
-a=3
-b=14
-print(f1(a,b))
-print(f2(a,b))
-print(f3(a,b))
+
+a = 3
+b = 14
+print(f1(a, b))
+print(f2(a, b))
+print(f3(a, b))
+
 
 # Задание 2. Основная ветка программы, не считая заголовков функций, состоит из
 # одной строки кода. Это вызов функции test(). В ней запрашивается на ввод целое число.
@@ -45,13 +49,16 @@ print(f3(a,b))
 def test():
     def positive():
         print("Положительное")
+
     def negative():
         print("Отрицательное")
+
     dig = int(input("Введите целое число: "))
-    if dig>=0:
+    if dig >= 0:
         positive()
     else:
         negative()
+
 
 test()
 
@@ -59,17 +66,20 @@ test()
 # Программа должна вывести слово YES, если число простое и NO, если число составное.
 from math import sqrt
 
-def check_prime(y):
-    for i in range(2, int(sqrt(y))+1):
-        if not y%i:
-            return (False)
-    return (True)
 
-y=211
+def check_prime(y):
+    for i in range(2, int(sqrt(y)) + 1):
+        if not y % i:
+            return False
+    return True
+
+
+y = 211
 if check_prime(y):
     print("YES")
 else:
     print("NO")
+
 
 # Задание 4. Выполнить циклический сдвиг в списке целых чисел на указанное число
 # шагов. Сдвиг также должен быть кольцевым, то есть элемент, вышедший за пределы
@@ -80,29 +90,33 @@ else:
 # pop() - извлекает элемент с конца списка или, если был передан индекс, по индексу.
 
 def shift(spisok, steps):
-    if steps>=0:
+    if steps >= 0:
         for i in range(steps):
-            spisok.insert(0,spisok.pop())
+            spisok.insert(0, spisok.pop())
     else:
         for i in range(abs(steps)):
             spisok.append(spisok.pop(0))
 
-spisok = [1,2,3,4,5,6,7,8,9]
-shift(spisok,3)
+
+spisok = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+shift(spisok, 3)
 print(spisok)
+
 
 # Задание 5. Даны два действительных числа x и y. Проверьте, принадлежит ли точка
 # с координатами (x,y) заштрихованному квадрату (включая его границу).
 # Если точка принадлежит квадрату, выведите слово YES, иначе выведите слово NO.
 # На рисунке сетка проведена с шагом 1.
 
-def is_in_square(x,y):
-    if abs(x)>1 or abs(y)>1:
+def is_in_square(x, y):
+    if abs(x) > 1 or abs(y) > 1:
         print('NO')
     else:
         print('YES')
 
-is_in_square(0.99,-0.99)
+
+is_in_square(0.99, -0.99)
+
 
 # Задание 6
 # Напишите программу по следующему описанию.
@@ -117,30 +131,36 @@ def cylinder():
     r = float(input("Введите r: "))
     h = float(input("Введите h: "))
     answer = int(input("[1]-только площадь боковой поверхности, [2]-полная площадь: "))
+
     def circle():
         nonlocal r
         nonlocal h
-        s = 3.14*r*r
+        s = 3.14 * r * r
         return s
-    res = 2*3.14*r*h
-    if answer==1:
+
+    res = 2 * 3.14 * r * h
+    if answer == 1:
         print(res)
     else:
-        print(res+2*circle())
+        print(res + 2 * circle())
+
 
 cylinder()
+
 
 # Задание 7. Дан список целых чисел. Посчитать, сколько раз в нем встречается каждое число.
 # Например, если дан список [1, 1, 3, 2, 1, 3, 4], то в нем число 1 встречается три раза,
 # число 3 - два раза, числа 2 и 4 - по одному разу.
 
 def list_count(spisok):
-    uniq=set(spisok)
+    uniq = set(spisok)
     for i in uniq:
-        print ("Число", i, "встречается",spisok.count(i),"раза")
+        print("Число", i, "встречается", spisok.count(i), "раза")
+
 
 spisok = [1, 1, 3, 2, 1, 3, 4]
 list_count(spisok)
+
 
 # Задание 8. Выполнить циклический сдвиг в списке целых чисел на
 # указанное число шагов. Сдвиг также должен быть кольцевым, то есть
@@ -157,9 +177,10 @@ list_count(spisok)
 def list_substract(a, b):
     res = []
     for i in range(len(a)):
-        res.append(a[i]-b[i])
+        res.append(a[i] - b[i])
     return res
 
-a = [5,4,3]
-b = [2,1,3]
-print(list_substract(a,b))
+
+a = [5, 4, 3]
+b = [2, 1, 3]
+print(list_substract(a, b))
