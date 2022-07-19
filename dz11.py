@@ -185,7 +185,6 @@ deq = [[0] * N for i in range(4)]
 for i in range(4):
     for j in range(N):
         deq[i][j] = random.randint(1, 10)
-for i in range(4):
     print(f'Очередь {i}: {deq[i]}')
 
 is_queue_null = False
